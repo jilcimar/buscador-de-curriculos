@@ -13,39 +13,11 @@
 Route::group( ['middleware' => 'auth'], function()
 {
     Route::get('/', 'HomeController@index')->name('home');
+
+    Route::resource('vagas','VagaController');
+
 });
 Auth::routes();
 
-// Form advanced page
-Route::get('/advanced-form', function () {
-    return view('pages.advanced-form');
-});
-
-// Form basic page
-Route::get('/basic-form', function () {
-    return view('pages.basic-form');
-});
-
-// Form wizard page
-Route::get('/wizard-form', function () {
-    return view('pages.wizard-form');
-});
-
-// Datatable jquery page
-Route::get('/jquery-datatable', function () {
-    return view('pages.jquery-datatable');
-});
-
-// Chartjs page
-Route::get('/chartjs', function () {
-    return view('pages.chartjs');
-});
-
-// Morris page
-Route::get('/morris', function () {
-    return view('pages.morrisjs');
-});
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
