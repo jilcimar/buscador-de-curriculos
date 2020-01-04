@@ -23,7 +23,7 @@ class VagaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.vagas.create');
     }
 
     /**
