@@ -139,7 +139,7 @@
                                                 <table class="table" id="adicionarOutrasHabilidade">
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="outras_habilidades[]"  class="form-control" placeholder="Titulo das  outras habilidade" required>
+                                                            <input type="text" name="outras_atividades[]"  class="form-control" placeholder="Titulo das  outras habilidade" required>
                                                         </td>
                                                         <td>
                                                             <button class="btn btn-primary" name="add" id="addOutrasHabilidade">
@@ -246,7 +246,7 @@
                 i++;
 
                 $('#adicionar_habilidade').append(
-                    '<tr id="row'+i+'"><td><input type="text" placeholder="Titulo das  outras habilidade" name="outras_habilidades[]"  class="form-control" required></td><td> <button name="remove" id="'+i+'" class="btn btn-danger btn_remove"> Remover </button> </td> </tr>'
+                    '<tr id="row'+i+'"><td><input type="text" placeholder="Titulo das  outras habilidade" name="outras_atividades[]"  class="form-control" required></td><td> <button name="remove" id="'+i+'" class="btn btn-danger btn_remove"> Remover </button> </td> </tr>'
                 );
 
                 $(document).on('click', '.btn_remove' , function () {
