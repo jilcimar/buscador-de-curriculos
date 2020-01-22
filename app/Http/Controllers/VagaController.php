@@ -88,9 +88,9 @@ class VagaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( Vaga $vaga)
     {
-        $vaga = Vaga::find($id)->with('habilidades', 'atividades' , 'outrasAtividades')->first();
+        $vaga->with('habilidades', 'atividades' , 'outrasAtividades')->first();
 
         return view('pages.externo.show', compact('vaga'));
     }

@@ -112,9 +112,71 @@
                 <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
                     <h3>Informações pessoais</h3>
 
-                    <form>
+                    <form class="form-material" action="{{route('vagas.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="nome" value="{{old('nome') }}" name="titulo" class="form-control" placeholder="Nome completo" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="email" id="email" value="{{old('email') }}" name="email" class="form-control" placeholder="E-mail" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="telefone" value="{{old('telefone') }}" name="telefone" class="form-control" placeholder="Telefone" required>
+                                    </div>
+                                </div>
+                            </div>
 
-                    </form>
+                            <h3>Carta de Apresentação</h3>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <textarea rows="4" name="apresentacao" class="form-control no-resize" placeholder="Faça um breve resumo sobre você"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Últimas perguntas </h3>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="linkedin" value="{{old('linkedin') }}" name="linkedin" class="form-control" placeholder="URL DO SEU LINKEDIN" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="github" value="{{old('github') }}" name="github" class="form-control" placeholder="URL DO SEU GITHUB" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" id="ingles"  data-live-search="true" name="ingles" required>
+                                        <option disabled value="" selected>Seu nível de inglês</option>
+                                        <option value="{{\App\Models\Curriculo::INGLES_BASICO}}" >Básico</option>
+                                        <option value="{{\App\Models\Curriculo::INGLES_MEDIO}}" >Médio</option>
+                                        <option value="{{\App\Models\Curriculo::INGLES_AVANCADO}}" >Avançado</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                     </form>
 
                 </div>
             </div>
