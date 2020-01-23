@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Atividade;
+use App\Models\Curriculo;
 use App\Models\Habilidade;
 use App\Models\OutrasAtividade;
 use App\Models\Vaga;
@@ -74,11 +75,45 @@ class VagaController extends Controller
 
             DB::commit();
 
-            return redirect()->back();
+            return redirect()->route('vagas.show', $vaga->id)
+                ->with('success', 'Vaga registrada com sucesso!');
 
         } catch (\Exception $exception) {
             DB::rollBack();
             return redirect()->back()->withErrors(['Erro ao salvar vagas', $exception->getMessage()]);
+        }
+    }
+
+    /**
+     * Enviocurriculo a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function Enviocurriculo(Request $request, $vaga_id)
+    {
+        $request->merge(['vaga_id' => $vaga_id]);
+
+        $data = $request->all();
+        DB::beginTransaction();
+        try {
+            $curriculo = Curriculo::create($data);
+
+            if($request->hasFile('anexo')) {
+                $curriculo->uploadFile($request->anexo, 'anexo');
+            }
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Curriculo registrado com sucesso!');
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            dd($exception->getMessage());
+
+            return redirect()->back()->withErrors([
+                'Erro ao salvar cooperado',
+                $exception->getMessage(),
+            ]);
         }
     }
 

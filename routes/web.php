@@ -21,3 +21,4 @@ Auth::routes();
 
 
 Route::get('/vaga/rits/{id}', 'VagaController@show');
+Route::post('/cadastro/vaga/{id}', 'VagaController@Enviocurriculo')->name('curriculo.store');

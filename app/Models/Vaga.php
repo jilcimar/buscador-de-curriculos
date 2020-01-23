@@ -36,4 +36,10 @@ class Vaga extends Model
     {
         return $this->hasMany(OutrasAtividade::class);
     }
+
+
+    public function curriculos ()
+    {
+        return $this->hasMany(Curriculo::class);
+    }
 }

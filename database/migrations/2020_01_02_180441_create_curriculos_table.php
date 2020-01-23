@@ -23,7 +23,7 @@ class CreateCurriculosTable extends Migration
             $table->string('github')->nullable();
             $table->integer('ingles');
             $table->integer('salario')->nullable();
-            $table->string('anexo');
+            $table->string('anexo')->nullable();
 
             $table->integer('vaga_id');
             $table->foreign('vaga_id')->references('id')->on('vagas')->onDelete('cascade');

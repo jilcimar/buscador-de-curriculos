@@ -21,6 +21,7 @@
                                 <th>Título</th>
                                 <th>Começa em</th>
                                 <th>Termina em</th>
+                                <th>Quantidade de inscritos</th>
                                 <th>Ações</th>
                             </tr>
                             </thead>
@@ -30,16 +31,12 @@
                                     <td>{{$vaga->titulo}}</td>
                                     <td>{{$vaga->inicio->format('d/m/Y')}}</td>
                                     <td>{{$vaga->fim->format('d/m/Y')}}</td>
+                                    <td>{{$vaga->curriculos()->count()}}</td>
                                     <td>
                                         <div class="table-options">
                                             <a class='linkbtn' href="{{route('vagas.show', ['id'=> $vaga->id])}}"
                                                title="Ver Vaga">
                                                 <i class="material-icons">search</i>
-                                            </a>
-
-                                            <a class='linkbtn' href="{{route('vagas.edit', ['id'=> $vaga->id])}}"
-                                               title="Editar Vaga">
-                                                <i class="material-icons">edit</i>
                                             </a>
                                         </div>
                                     </td>

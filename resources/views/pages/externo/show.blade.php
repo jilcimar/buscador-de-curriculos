@@ -30,6 +30,20 @@
         .item {
             color: white !important;
         }
+        .enviar{
+            /* Rectangle 2 */
+
+            position: absolute;
+            width: 560px;
+            height: 60px;
+            left: 680px;
+            top: 1870px;
+
+            /* Verde */
+            background: #4EEF61;
+            border-radius: 50px;
+        }
+
     </style>
 </head>
 <body>
@@ -51,7 +65,6 @@
                             <li class="active"><a href="index.html"> A RITS</a></li>
                             <li class="has-dropdown">
                                 <a href="#">NOSSOS VALORES</a>
-
                             </li>
                             <p class="has-dropdown" >
                                 <a href="#" class="btn btn-primary">VAGAS ABERTAS</a>
@@ -98,7 +111,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <p><a href="gallery.html" class="btn btn-primary btn-lg btn-custom">CANDIDATE-SE</a></p>
+                            <p><a href="#nome" class="btn btn-primary btn-lg btn-custom">CANDIDATE-SE</a></p>
                         </div>
                     </div>
                 </div>
@@ -112,13 +125,13 @@
                 <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
                     <h3>Informações pessoais</h3>
 
-                    <form class="form-material" action="{{route('vagas.store')}}" method="POST" enctype="multipart/form-data">
+                    <form class="form-material" action="{{route('curriculo.store', [$vaga->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" id="nome" value="{{old('nome') }}" name="titulo" class="form-control" placeholder="Nome completo" required>
+                                        <input type="text" id="nome" value="{{old('nome') }}" name="nome" class="form-control" placeholder="Nome completo" required>
                                     </div>
                                 </div>
                             </div>
@@ -163,18 +176,45 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <select class="form-control show-tick" id="ingles"  data-live-search="true" name="ingles" required>
-                                        <option disabled value="" selected>Seu nível de inglês</option>
-                                        <option value="{{\App\Models\Curriculo::INGLES_BASICO}}" >Básico</option>
-                                        <option value="{{\App\Models\Curriculo::INGLES_MEDIO}}" >Médio</option>
-                                        <option value="{{\App\Models\Curriculo::INGLES_AVANCADO}}" >Avançado</option>
-                                    </select>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control show-tick" id="ingles"  data-live-search="true" name="ingles" required>
+                                            <option disabled value="" selected>Seu nível de inglês</option>
+                                            <option value="{{\App\Models\Curriculo::INGLES_BASICO}}"> Básico</option>
+                                            <option value="{{\App\Models\Curriculo::INGLES_MEDIO}}"> Médio</option>
+                                            <option value="{{\App\Models\Curriculo::INGLES_AVANCADO}}"> Avançado</option>
+                                        </select>
+                                    </div>
                                 </div>
-
                             </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="number" id="salario" value="{{old('salario') }}" name="salario" class="form-control" placeholder="PRETENÇÃO SALARIAL" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Anexe seu currículo em PDF ou DOC </h3>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="file" name="anexo" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <p><button type="submit" class="btn btn-primary btn-lg btn-custom">Enviar</button></p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                      </form>
 
@@ -193,19 +233,15 @@
                     <div class="col-md-12 text-center">
                         <p>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                           Rits Tecnologia. Todos os direitos reservados.
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><br>
-                            Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>, <a href="http://pexels.com/" target="_blank">Pexels</a>
+                            Desenvolver e evoluir soluções digitais para negócios que acreditam na tecnologia como força propulsora.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-</div>
-
-<div class="gototop js-top">
-    <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 </div>
 
 <!-- jQuery -->
