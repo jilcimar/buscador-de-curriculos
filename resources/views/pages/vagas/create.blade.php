@@ -59,7 +59,7 @@
                                                 </div>
                                                 @if ($errors->has('titulo'))
                                                     <span class="invalid-feedback">
-                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                        <strong>{{ $errors->first('titulo') }}</strong>
                                                     </span>
                                                 @endif
                                             </div>
@@ -78,9 +78,9 @@
                                                 <div class="form-line">
                                                     <input type="text" id="cidade" value="{{old('cidade') }}" name="cidade" class="form-control" placeholder="Nome da cidade">
                                                 </div>
-                                                @if ($errors->has('titulo'))
+                                                @if ($errors->has('cidade'))
                                                     <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('name') }}</strong>
+                                                <strong>{{ $errors->first('cidade') }}</strong>
                                             </span>
                                                 @endif
                                             </div>
